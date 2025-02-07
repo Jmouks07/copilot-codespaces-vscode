@@ -1,0 +1,40 @@
+import turtle
+import time
+import random
+
+
+def screen():
+    global s
+    s = turtle.Screen()
+    s.setup(800, 600)
+    s.bgcolor('dark green')
+    s.title('FIFA: 2025!')
+
+
+def setup_screen(x, y):
+    # screen text
+    global intro
+    intro = turtle.Turtle()
+    intro.penup()
+    intro.hideturtle()
+    intro.color('red')
+    intro.goto(0, 180)
+    intro.write("Welcome to FIFA!", align="center", font=("Deja Vu Sans Mono", 50, "normal"))
+    # buttons
+    opt1 = turtle.Turtle()
+    opt1.speed(0)
+    opt1.penup()
+    opt1.goto(0, 100)
+    s.register_shape("start_button.gif")
+    opt1.shape("start_button.gif")
+
+    def click1(x, y):
+        # need to get the coordinates of the buttons
+        if x > opt1.xcor() - 100 and x < opt1.xcor() + 100 and y > opt1.ycor() - 25 and y < opt1.ycor() + 25:
+            # exit screen
+            s.exitonclick()
+            # launch game
+            football()
+
+    turtle.listen()
+    s.onscreenclick(click1, 1)
