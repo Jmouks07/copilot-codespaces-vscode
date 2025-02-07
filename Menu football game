@@ -3,6 +3,7 @@ import time
 import random
 
 
+
 def screen():
     global s
     s = turtle.Screen()
@@ -28,13 +29,18 @@ def setup_screen(x, y):
     s.register_shape("start_button.gif")
     opt1.shape("start_button.gif")
 
-    def click1(x, y):
-        # need to get the coordinates of the buttons
-        if x > opt1.xcor() - 100 and x < opt1.xcor() + 100 and y > opt1.ycor() - 25 and y < opt1.ycor() + 25:
-            # exit screen
-            s.exitonclick()
-            # launch game
-            football()
+def click1(x, y):
+    # need to get the coordinates of the buttons
+    if x > opt1.xcor() - 100 and x < opt1.xcor() + 100 and y > opt1.ycor() - 25 and y < opt1.ycor() + 25:
+        print("W")
+        # exit screen
+        s.exitonclick()
+        # launch game
+        import football2
+        football2
 
-    turtle.listen()
-    s.onscreenclick(click1, 1)
+        turtle.listen()
+        s.onscreenclick(click1, 1)
+
+screen()
+setup_screen(0,0)
